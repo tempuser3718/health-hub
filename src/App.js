@@ -17,6 +17,9 @@ function App() {
         <Route path="/eating" element={<HealthyEating />} />
         <Route path="/symptoms" element={<SymptomChecker />} />
       </Routes>
+      <footer>
+  © 2025 St Mary's Health Hub. All rights reserved.
+</footer>
     </Router>
   );
 }
