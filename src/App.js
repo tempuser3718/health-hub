@@ -6,6 +6,7 @@ import Conditions from './components/Conditions';
 import BMICalculator from './components/BMICalculator';
 import SymptomChecker from './components/SymptomChecker';
 import HealthNews from './components/HealthNews';
+import MentalWellbeing from './components/MentalWellbeing';
 
 function App() {
   return (
@@ -15,10 +16,11 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/conditions" element={<Conditions />} />
         <Route path="/bmi" element={<BMICalculator />} />
-        <Route path="/eating" element={<HealthyEating />} />
-        <Route path="/symptoms" element={<SymptomChecker />} />
-        <Route path="/news" element={<HealthNews />} />
-        
+        <Route path="/symptom-checker" element={<SymptomChecker />} />
+        <Route path="/mental-wellbeing" element={<MentalWellbeing />} />
+        <Route path="/healthy-eating" element={<HealthyEating />} />
+        <Route path="/health-news" element={<HealthNews />} />
+    
       </Routes>
       <footer>
   © 2025 St Mary's Health Hub. All rights reserved.
