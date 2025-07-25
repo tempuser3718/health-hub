@@ -5,6 +5,7 @@ export default function BMICalculator() {
   const [height, setHeight] = useState('');
   const [bmi, setBmi] = useState(null);
   const [category, setCategory] = useState('');
+  const [advice, setAdvice] = useState('');
 
   const calculateBMI = () => {
     if (!weight || !height) return;
@@ -14,14 +15,23 @@ export default function BMICalculator() {
     const roundedBMI = bmiValue.toFixed(1);
     setBmi(roundedBMI);
 
-    if (bmiValue < 18.5) setCategory('Underweight');
-    else if (bmiValue < 25) setCategory('Healthy weight');
-    else if (bmiValue < 30) setCategory('Overweight');
-    else setCategory('Obese');
+    if (bmiValue < 18.5) {
+      setCategory('Underweight');
+      setAdvice("You may need to increase your calorie intake. Consider speaking to a healthcare professional for guidance.");
+    } else if (bmiValue < 25) {
+      setCategory('Healthy weight');
+      setAdvice("You're within a healthy range. Continue maintaining a balanced diet and regular activity.");
+    } else if (bmiValue < 30) {
+      setCategory('Overweight');
+      setAdvice("Try to incorporate more physical activity into your routine and review your nutrition habits.");
+    } else {
+      setCategory('Obese');
+      setAdvice("It may help to consult a GP about lifestyle changes or support services for weight management.");
+    }
   };
 
   return (
-    <div style={{ textAlign: 'center' }}>
+    <div style={{ textAlign: 'centre' }}>
       <h1>BMI Calculator</h1>
       <input
         type="number"
@@ -41,9 +51,12 @@ export default function BMICalculator() {
       <button onClick={calculateBMI}>Calculate BMI</button>
 
       {bmi && (
-        <p>
-          Your BMI is <strong>{bmi}</strong> — <em>{category}</em>
-        </p>
+        <div style={{ marginTop: '15px' }}>
+          <p>
+            Your BMI is <strong>{bmi}</strong> — <em>{category}</em>
+          </p>
+          <p>{advice}</p>
+        </div>
       )}
     </div>
   );
