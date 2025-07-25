@@ -6,9 +6,20 @@ export default function BMICalculator() {
   const [bmi, setBmi] = useState(null);
   const [category, setCategory] = useState('');
   const [advice, setAdvice] = useState('');
+  const [validationMessage, setValidationMessage] = useState('');
 
   const calculateBMI = () => {
-    if (!weight || !height) return;
+    setValidationMessage('');
+
+    if (!weight || !height) {
+      setValidationMessage('Please enter both your weight and height.');
+      return;
+    }
+
+    if (weight <= 0 || height <= 0) {
+      setValidationMessage('Weight and height must be greater than zero.');
+      return;
+    }
 
     const heightInMetres = height / 100;
     const bmiValue = weight / (heightInMetres * heightInMetres);
@@ -49,6 +60,10 @@ export default function BMICalculator() {
       />
       <br />
       <button onClick={calculateBMI}>Calculate BMI</button>
+
+      {validationMessage && (
+        <p style={{ color: 'red' }}>{validationMessage}</p>
+      )}
 
       {bmi && (
         <div style={{ marginTop: '15px' }}>
