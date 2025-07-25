@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import HealthyEating from './components/HealthyEating';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
 import Conditions from './components/Conditions';
@@ -12,6 +13,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/conditions" element={<Conditions />} />
         <Route path="/bmi" element={<BMICalculator />} />
+        <Route path="/eating" element={<HealthyEating />} />
       </Routes>
     </Router>
   );

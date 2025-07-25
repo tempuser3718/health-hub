@@ -6,6 +6,7 @@ export default function Navbar() {
       <Link to="/">Home</Link> |{" "}
       <Link to="/conditions">Conditions</Link> |{" "}
       <Link to="/bmi">BMI Calculator</Link>
+      <Link to="/eating">Healthy Eating</Link>
     </nav>
   );
 }
